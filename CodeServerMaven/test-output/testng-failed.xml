@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [regression]">
+  <parameter name="OTP" value="873580"/>
+  <test name="CSRV-3422(failed)">
+    <classes>
+      <class name="regression.CSRV_3847">
+        <methods>
+          <include name="GetToken"/>
+        </methods>
+      </class> <!-- regression.CSRV_3847 -->
+      <class name="regression.CSRV_3422">
+        <methods>
+          <include name="TestCase1"/>
+          <include name="TestCase2"/>
+        </methods>
+      </class> <!-- regression.CSRV_3422 -->
+    </classes>
+  </test> <!-- CSRV-3422(failed) -->
+  <test name="CSRV-3423(failed)">
+    <classes>
+      <class name="regression.CSRV_3847">
+        <methods>
+          <include name="GetToken"/>
+        </methods>
+      </class> <!-- regression.CSRV_3847 -->
+      <class name="regression.CSRV_3423">
+        <methods>
+          <include name="TestCase2"/>
+        </methods>
+      </class> <!-- regression.CSRV_3423 -->
+    </classes>
+  </test> <!-- CSRV-3423(failed) -->
+  <test name="CSRV-3801(failed)">
+    <classes>
+      <class name="regression.CSRV_3847">
+        <methods>
+          <include name="GetToken"/>
+        </methods>
+      </class> <!-- regression.CSRV_3847 -->
+      <class name="regression.CSRV_3801">
+        <methods>
+          <include name="TestCase1"/>
+        </methods>
+      </class> <!-- regression.CSRV_3801 -->
+    </classes>
+  </test> <!-- CSRV-3801(failed) -->
+  <test name="CSRV-3846(failed)">
+    <classes>
+      <class name="regression.CSRV_3847">
+        <methods>
+          <include name="GetToken"/>
+        </methods>
+      </class> <!-- regression.CSRV_3847 -->
+      <class name="regression.CSRV_3846">
+        <methods>
+          <include name="TestCase1"/>
+          <include name="TestCase2"/>
+        </methods>
+      </class> <!-- regression.CSRV_3846 -->
+    </classes>
+  </test> <!-- CSRV-3846(failed) -->
+  <test name="CSRV-3847(failed)">
+    <classes>
+      <class name="regression.CSRV_3847">
+        <methods>
+          <include name="GetToken"/>
+          <include name="TestCase1"/>
+          <include name="TestCase2"/>
+        </methods>
+      </class> <!-- regression.CSRV_3847 -->
+    </classes>
+  </test> <!-- CSRV-3847(failed) -->
+</suite> <!-- Failed suite [regression] -->

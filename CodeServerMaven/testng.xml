@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="regression">
+
+ 	<parameter name="OTP" value="873580"/> 
+   <test verbose="1" name="CSRV-3422">
+    <classes>
+     <class name="regression.CSRV_3422"/>
+    </classes>
+  </test>
+  <test verbose="1" name="CSRV-3423">
+  	<classes>
+  		<class name="regression.CSRV_3423"/>
+  	</classes>
+  </test>
+    <test verbose="1" name="CSRV-3801">
+    <classes>
+     <class name="regression.CSRV_3801"/>
+    </classes>
+  </test>  
+   <test verbose="1" name="CSRV-3846">
+    <classes>
+     <class name="regression.CSRV_3846"/>
+    </classes>
+  </test>  
+  
+
+  
+  <test verbose="1" name="CSRV-3847">
+    <classes>
+     <class name="regression.CSRV_3847"/>
+    </classes>
+  </test> 
+  
+ 
+  
+  
+</suite>
