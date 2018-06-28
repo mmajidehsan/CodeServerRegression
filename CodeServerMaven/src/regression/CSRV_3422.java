@@ -3,6 +3,7 @@ package regression;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import base.BaseClass;
@@ -18,7 +19,7 @@ public class CSRV_3422 extends BaseClass{
 	//Verify API is returning valid response
 
 	@Test
-	public void TestCase1() throws IOException {
+	public void VarifyValidResponse() throws IOException {
 		URL=FW_URL+"/api/v2/user/tickets/";
 		System.out.println(URL);
 		RestAssured.baseURI = URL;
@@ -30,17 +31,18 @@ public class CSRV_3422 extends BaseClass{
 		Request.header("Authorization","Bearer "+Token);
 		Response response = Request.request(Method.GET,"19/url");
 
-		Assert.assertEquals(response.getStatusCode(), 200);
+		Assert.assertEquals(response.getStatusCode(), 200,"Valid Response Returned");
 
 		JsonPath jsonPathEvaluator = response.jsonPath();
 		//List<List<String>> content= jsonPathEvaluator.getList("contents");
 		String url= jsonPathEvaluator.get("url");
 		System.out.println("Ticket URL: "+url);
+		Reporter.log("Ticket URL: "+url);
 	
 	
 	}
 	@Test
-	public void TestCase2() throws IOException{
+	public void VerifyRequiredAPI() throws IOException{
 		URL=EA_URL+"/api/v2/issues";
 		RestAssured.baseURI = URL;
 		RequestSpecification Request = RestAssured.given();
@@ -51,11 +53,12 @@ public class CSRV_3422 extends BaseClass{
 		Request.header("From",email);
 		Response response = Request.request(Method.GET,"/8/url");
 
-		Assert.assertEquals(response.getStatusCode(), 200);
+		Assert.assertEquals(response.getStatusCode(), 200,"Valid Response Returned");
 
 		JsonPath jsonPathEvaluator = response.jsonPath();
 		//List<List<String>> content= jsonPathEvaluator.getList("contents");
 		String url= jsonPathEvaluator.get("url");
 		System.out.println("Ticket URL: "+url);
+		Reporter.log("Ticket URL: "+url);
 	}
 }

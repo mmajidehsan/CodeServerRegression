@@ -19,7 +19,7 @@ public class CSRV_3847 extends BaseClass{
 	
 	//Verify API returns list that exceeds 2000 files that match defined regular expression
   @Test
-  public void TestCase1() throws IOException {
+  public void VeirfyResponseURLAbove2000() throws IOException {
 	  URL=FW_URL+"/api/v2/commits/files";
 		System.out.println(URL);
 	  RestAssured.baseURI = URL;
@@ -32,10 +32,12 @@ public class CSRV_3847 extends BaseClass{
 		JsonPath jsonEvaluator = response.jsonPath();
 		int matched=jsonEvaluator.get("filesMatchingQuery");
 		int total=jsonEvaluator.get("filesTotal");
-		Assert.assertEquals(response.getStatusCode(), 200);
+		Assert.assertEquals(response.getStatusCode(), 200,"Valid Response Returned");
 		Assert.assertEquals(matched, total);
-		Assert.assertEquals(total>2000, true);
+		Assert.assertEquals(total>=2000, true);
 		List<String> content= jsonEvaluator.getList("contents");
+		Reporter.log("URLs Returned: "+content.size());
+		Reporter.log("<br>");
 		for(String con : content)
 		{
 			Reporter.log(con);
@@ -45,7 +47,7 @@ public class CSRV_3847 extends BaseClass{
   }
   //Verify API returns single selected file that match defined regular expression
   @Test
-  public void TestCase2() throws IOException {
+  public void VerifySingleFileURL() throws IOException {
 	  URL=FW_URL+"/api/v2/commits/files";
 	  RestAssured.baseURI = URL;
 		RequestSpecification httpRequest = RestAssured.given();
@@ -56,9 +58,11 @@ public class CSRV_3847 extends BaseClass{
 		
 		JsonPath jsonEvaluator = response.jsonPath();
 		int matched=jsonEvaluator.get("filesMatchingQuery");
-		Assert.assertEquals(response.getStatusCode(), 200);
+		Assert.assertEquals(response.getStatusCode(), 200,"Valid Response Returned");
 		Assert.assertEquals(matched==1, true);
 		List<String> content= jsonEvaluator.getList("contents");
+		Reporter.log("URLs Returned: "+content.size());
+		Reporter.log("<br>");
 		for(String con : content)
 		{
 			Reporter.log(con);
